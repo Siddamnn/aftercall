@@ -18,7 +18,7 @@ CLI (`aftercall/cli.py`): `create-tenant`, `rotate-key` and `alteria-costs`, aga
 ## Layout
 
 - `aftercall/api.py` builds the app (and strips the `/api` prefix Firebase Hosting forwards); the routes are in `aftercall/routes/`, one module per area (trackers, uploads, tasks, insights, dashboards, projects, alteria, people, workspace, notifications, usage, billing, docs).
-- `aftercall/store.py` is the only data layer (Firestore, or memory); `aftercall/models.py` holds the records. See [docs/google-cup/models.md](../../docs/google-cup/models.md).
+- `aftercall/store.py` is the only data layer (Firestore, or memory); `aftercall/models.py` holds the records.
 - `aftercall/deps.py` says who is asking (an API key acts as the workspace's owner; a Firebase ID token is a person with a role, via `firebase_auth.py`), and which project (`X-Project`, else the default one). `aftercall/permissions.py` is the one map of what each role may do.
 - Calls: `routes/uploads.py` takes uploads and queues calls through `tasks.py` (Cloud Tasks); `routes/tasks.py` receives each task and `worker.py` transcribes recordings (`transcribe.py`, `storage.py`) and runs Jev (`jev.py`, `planner.py`).
 - Ask alteria: `alteria.py`, `ask.py`, `threads.py`, on Gemini (`llm.py`), with Jev choosing the tier (`router.py`).
