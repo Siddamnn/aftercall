@@ -8,7 +8,6 @@ import NotFound, { Crashed, Forbidden, SignedOut } from './pages/Status'
 import { PageLoader } from './loaders'
 import { RequireAuth } from './session'
 import { TooltipProvider } from './components/ui/tooltip'
-import { BILLING_ON } from './config'
 import './index.css'
 
 // Each page loads on first visit, so the landing page doesn't ship the app.
@@ -21,9 +20,7 @@ const router = createBrowserRouter([
     children: [
   { index: true, lazy: page(() => import('./pages/Landing')), errorElement: <Crashed /> },
   // No billing in this build: there is nothing to price, so these addresses go home.
-  BILLING_ON
-    ? { path: 'pricing', lazy: page(() => import('./pages/Pricing')), errorElement: <Crashed /> }
-    : { path: 'pricing', element: <Navigate to="/" replace /> },
+  { path: 'pricing', element: <Navigate to="/" replace /> },
   // Signing in, joining and setting up: outside the app, no sign-in needed to see them.
   { path: 'login', lazy: page(() => import('./pages/Login')), errorElement: <Crashed /> },
   { path: 'signup', lazy: page(() => import('./pages/Login')), errorElement: <Crashed /> },
@@ -32,9 +29,7 @@ const router = createBrowserRouter([
   { path: 'onboarding', lazy: page(() => import('./pages/Onboarding')), errorElement: <Crashed /> },
   // Docs: public, so they can be found and linked. Legal pages also at their usual short addresses.
   { path: 'docs', lazy: page(() => import('./pages/Docs')), errorElement: <Crashed /> },
-  // The API docs: their own site with their own nav (pages/ApiDocs.tsx).
-  { path: 'docs/api', lazy: page(() => import('./pages/ApiDocs')), errorElement: <Crashed /> },
-  { path: 'docs/api/:slug', lazy: async () => ({ Component: (await import('./pages/ApiDocs')).ApiDocsPage }), errorElement: <Crashed /> },
+  { path: 'docs/api/*', element: <Navigate to="/docs" replace /> },
   { path: 'docs/:slug', lazy: async () => ({ Component: (await import('./pages/Docs')).DocsArticle }), errorElement: <Crashed /> },
   ...['privacy', 'terms', 'security', 'cookies', 'dpa'].map((s) => ({ path: s, element: <Navigate to={`/docs/${s}`} replace /> })),
   { path: 'unauthorized', Component: Forbidden },
@@ -57,22 +52,12 @@ const router = createBrowserRouter([
       { path: 'upload', element: <Navigate to="/analyse" replace /> },
       { path: 'results/:uploadId?/:callId?', lazy: page(() => import('./pages/Results')) },
       // Settings (B46): Overview, Plan and credits, Usage. /usage moved in here.
-      BILLING_ON
-        ? { path: 'settings/credits/add', lazy: page(() => import('./pages/AddCredits')) }
-        : { path: 'settings/credits/add', element: <Navigate to="/settings" replace /> },
+      { path: 'settings/credits/add', element: <Navigate to="/settings" replace /> },
       { path: 'settings/usage/allowances', lazy: page(() => import('./pages/Allowances')) },
       { path: 'settings/:tab?', lazy: page(() => import('./pages/Settings')) },
       { path: 'usage', element: <Navigate to="/settings/usage" replace /> },
     ],
   },
-  // Mock builds only: every flow to test, and a page that crashes. Dropped from real builds.
-  ...(import.meta.env.VITE_API_MOCK === 'true'
-    ? [
-        { path: 'dev/flows', lazy: page(() => import('./pages/DevFlows')), errorElement: <Crashed /> },
-        { path: 'dev/loaders', lazy: page(() => import('./pages/DevLoaders')), errorElement: <Crashed /> },
-        { path: 'dev/crash', lazy: async () => ({ Component: (await import('./pages/DevFlows')).Crash }), errorElement: <Crashed /> },
-      ]
-    : []),
   { path: '*', Component: NotFound },
     ],
   },

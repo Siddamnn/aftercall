@@ -14,7 +14,6 @@
 #                       Different ports keep each mode's saved state apart, so both can run at once.
 #
 # Mock URL switches: ?signed-out  ?onboarding  ?fresh  ?role=admin|member|viewer  ?quiet  ?billing=off
-# (the full list is at /dev/flows while the mock runs).
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"
@@ -109,7 +108,6 @@ fi
 
 if $MOCK; then
   say "Web UI on mock data${MOCK_PLAN:+ (${MOCK_PLAN} plan)}: http://localhost:$WEB_PORT"
-  say "Every flow to try: http://localhost:$WEB_PORT/dev/flows"
   cd "$ROOT/apps/web" && exec env VITE_API_MOCK=true VITE_MOCK_PLAN="$MOCK_PLAN" ./node_modules/.bin/vite --port "$WEB_PORT" --strictPort
 fi
 

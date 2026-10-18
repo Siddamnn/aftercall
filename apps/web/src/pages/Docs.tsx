@@ -1,8 +1,7 @@
 // /docs: the help centre, public so it can be found and linked. The landing page is a search box
 // and a grid of sections; an article has the section nav on the left, the article, and "On this
 // page" on the right (the Stripe and Linear pattern). Content is in src/docs/.
-import { BILLING_ON } from '../config'
-import { ArrowLeft, ArrowRight, CaretRight, Code, List as ListIcon, MagnifyingGlass, Warning } from '@phosphor-icons/react'
+import { ArrowLeft, ArrowRight, CaretRight, List as ListIcon, MagnifyingGlass, Warning } from '@phosphor-icons/react'
 import { AnimatePresence, motion } from 'motion/react'
 import { Suspense, useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import { Link, Navigate, NavLink, useLocation, useNavigate, useParams } from 'react-router-dom'
@@ -11,7 +10,6 @@ import { Wordmark } from '../brand'
 import { Button } from '../components/ui/button'
 import { Input } from '../components/ui/input'
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '../components/ui/sheet'
-import { API_GROUPS, apiPagesIn } from '../docs/api/registry'
 import { ARTICLES, articleBySlug, articlesIn, SECTIONS, sectionOf, type Article } from '../docs/registry'
 import { searchDocs, warmDocSearch, type DocHit } from '../docs/search'
 import { Continue, Helpful, rememberArticle } from '../docs/feedback'
@@ -36,8 +34,6 @@ export function DocsShell({ children, crumb }: { children: ReactNode; crumb?: Re
           <Link to="/docs" className="text-sm font-medium">Docs</Link>
           {crumb && <><span className="text-muted-foreground" aria-hidden>/</span>{crumb}</>}
           <nav className="ml-auto flex items-center gap-1 text-sm">
-            <Link to="/docs/api" className="hidden rounded-md px-3 py-1.5 text-muted-foreground hover:text-foreground md:block">API</Link>
-            {BILLING_ON && <Link to="/pricing" className="hidden rounded-md px-3 py-1.5 text-muted-foreground hover:text-foreground sm:block">Pricing</Link>}
             <Link to="/docs/support" className="hidden rounded-md px-3 py-1.5 text-muted-foreground hover:text-foreground sm:block">Support</Link>
             <ThemeButton />
             <Button size="sm" asChild className="ml-1"><Link to={me ? '/insights' : '/login'}>{me ? 'Open the app' : 'Sign in'}</Link></Button>
@@ -198,28 +194,6 @@ export default function DocsHome() {
               </motion.li>
             )
           })}
-          {/* The API docs are their own site (/docs/api, with their own nav); here they're one card, across the grid. */}
-          <motion.li initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, ease, delay: SECTIONS.length * 0.035 }} className="sm:col-span-2 lg:col-span-4">
-            <div className="surface group grid h-full gap-5 p-5 transition-[border-color,box-shadow] duration-200 hover:border-primary/35 hover:shadow-float md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] md:gap-8">
-              <div className="flex flex-col">
-                <Link to="/docs/api" className="flex items-center gap-3">
-                  <span className="grid size-10 place-items-center rounded-xl bg-primary-soft text-primary transition-transform duration-200 group-hover:scale-105"><Code size={20} weight="duotone" aria-hidden /></span>
-                  <h2 className="font-semibold tracking-tight">API and integrations</h2>
-                  <span className="rounded-[6px] bg-warn-soft px-1.5 py-0.5 text-[0.6875rem] font-medium text-warn">Preview</span>
-                </Link>
-                <p className="mt-2 text-sm text-ink-2">Push conversations from your platform, get answers back by webhook, connect Twilio, Vapi, HubSpot or Slack, and use aftercall from any AI.</p>
-                <Link to="/docs/api" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary md:mt-auto md:pt-4">Open the API docs <ArrowRight size={13} className="transition-transform duration-150 group-hover:translate-x-0.5" aria-hidden /></Link>
-              </div>
-              <ul className="grid gap-x-6 gap-y-1.5 text-sm sm:grid-cols-2 lg:grid-cols-3">
-                {API_GROUPS.map((g) => {
-                  const first = apiPagesIn(g.id)[0]
-                  return <li key={g.id}><Link to={`/docs/api/${first.slug}`} className="text-muted-foreground hover:text-primary">{g.title}</Link></li>
-                })}
-                <li><Link to="/docs/api/quickstart" className="text-muted-foreground hover:text-primary">Quickstart</Link></li>
-                <li><Link to="/docs/api/mcp" className="text-muted-foreground hover:text-primary">MCP server</Link></li>
-              </ul>
-            </div>
-          </motion.li>
         </ul>
         <div className="mt-12 flex flex-col items-center justify-between gap-4 rounded-2xl border bg-card px-6 py-6 text-center sm:flex-row sm:text-left">
           <div>
@@ -253,13 +227,6 @@ function SideNav({ active, onPick }: { active: string; onPick?: () => void }) {
           </ul>
         </div>
       ))}
-      {/* The API docs have their own nav; the help centre only links to them. */}
-      <div>
-        <p className="mb-1.5 px-2 text-xs font-semibold tracking-wide text-muted-foreground uppercase">For developers</p>
-        <Link to="/docs/api" onClick={onPick} className="group flex items-center gap-1.5 rounded-md px-2 py-1.5 text-muted-foreground transition-colors hover:text-foreground">
-          <Code size={14} aria-hidden /> API and integrations <ArrowRight size={12} className="ml-auto transition-transform duration-150 group-hover:translate-x-0.5" aria-hidden />
-        </Link>
-      </div>
     </nav>
   )
 }

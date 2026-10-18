@@ -14,7 +14,6 @@ import MiniSearch from 'minisearch'
 import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { MemoryRouter } from 'react-router-dom'
-import { API_PAGES, apiGroupOf } from './api/registry'
 import { ARTICLES, sectionOf } from './registry'
 
 export interface DocHit {
@@ -47,7 +46,7 @@ const MEANS: Record<string, string> = {
   ai: 'alteria', assistant: 'alteria', report: 'dashboard export', download: 'export csv pdf png',
   limit: 'allowance limit plan', budget: 'allowance', spend: 'usage allowance credits',
   alert: 'notifications', notify: 'notifications', email: 'notifications invite',
-  api: 'api developer endpoint', developer: 'api', integration: 'connectors', integrations: 'connectors', connect: 'connectors', webhook: 'webhooks events', mcp: 'mcp claude chatgpt', key: 'api keys authentication', token: 'tokens credits api key',
+  api: 'api developer endpoint', developer: 'api', key: 'api keys authentication', token: 'tokens credits api key',
   hack: 'security vulnerability', bug: 'support security', help: 'support contact', contact: 'support email',
 }
 const widen = (q: string) => {
@@ -60,11 +59,7 @@ let built: Promise<{ mini: MiniSearch<Doc>; docs: Map<string, Doc> }> | undefine
 /** Render every article, and cut it into sections at its headings. */
 async function buildIndex() {
   const docs: Doc[] = []
-  // Help centre articles, then the API docs (addressed as api/{slug}, so /docs/{slug} still works).
-  const pages = [
-    ...ARTICLES.map((x) => ({ slug: x.slug, title: x.title, section: sectionOf(x.section).title, keywords: x.keywords, description: x.description, load: x.load })),
-    ...API_PAGES.map((x) => ({ slug: `api/${x.slug}`, title: x.title, section: `API · ${apiGroupOf(x.group).title}`, keywords: `api developer ${x.keywords ?? ''}`, description: x.description, load: x.load })),
-  ]
+  const pages = ARTICLES.map((x) => ({ slug: x.slug, title: x.title, section: sectionOf(x.section).title, keywords: x.keywords, description: x.description, load: x.load }))
   for (const x of pages) {
     const Body = await x.load()
     let html = ''
