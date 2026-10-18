@@ -55,10 +55,10 @@ const writeKey = (k: string, v: string) => {
 }
 
 const STARTERS: { q: string; Icon: typeof Headset }[] = [
-  { q: 'Why do customers decline?', Icon: Quotes },
-  { q: 'What changed after agent v13?', Icon: Lightning },
-  { q: 'Which rep books the most?', Icon: UsersThree },
-  { q: 'Build me a dashboard for agent quality', Icon: PresentationChart },
+  { q: 'Why are customers returning items?', Icon: Quotes },
+  { q: 'What makes customers likely to leave?', Icon: Lightning },
+  { q: 'How often do customers mention competitors?', Icon: UsersThree },
+  { q: 'Build me a dashboard for return reasons', Icon: PresentationChart },
 ]
 
 interface Msg {
