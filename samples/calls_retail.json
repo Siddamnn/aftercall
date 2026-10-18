@@ -1,0 +1,388 @@
+{
+ "calls": [
+  {
+   "external_id": "retail-001",
+   "agent_id": "support",
+   "agent_version": "v3",
+   "started_at": "2026-10-02T11:10:00+05:30",
+   "transcript": [
+    {
+     "speaker": "agent",
+     "text": "Hi, thanks for calling Nuvo Wear support, this is Riya. How can I help?"
+    },
+    {
+     "speaker": "caller",
+     "text": "Hi, I ordered a linen shirt in medium last week and it's way too tight across the shoulders. I want to return it."
+    },
+    {
+     "speaker": "agent",
+     "text": "Sorry about that. I can book a free pickup. Would you like a refund or a large instead?"
+    },
+    {
+     "speaker": "caller",
+     "text": "Refund please. Your size chart said medium would fit, that's a bit annoying."
+    },
+    {
+     "speaker": "agent",
+     "text": "Understood. Pickup is booked for tomorrow between 10 and 2, and the refund goes out once it's picked up."
+    },
+    {
+     "speaker": "caller",
+     "text": "Okay, fine. Thanks."
+    }
+   ]
+  },
+  {
+   "external_id": "retail-002",
+   "agent_id": "support",
+   "agent_version": "v3",
+   "started_at": "2026-10-03T15:42:00+05:30",
+   "transcript": [
+    {
+     "speaker": "agent",
+     "text": "Nuvo Wear support, this is Arjun."
+    },
+    {
+     "speaker": "caller",
+     "text": "My order says delivered since yesterday but I never got anything. Nobody came."
+    },
+    {
+     "speaker": "agent",
+     "text": "I'm sorry. Let me check with the courier. I've raised a trace; we'll update you in 48 hours."
+    },
+    {
+     "speaker": "caller",
+     "text": "48 hours? I needed it for a wedding on Saturday. Honestly, this is the second time. I'll just order from Myntra next time."
+    },
+    {
+     "speaker": "agent",
+     "text": "I completely understand. I've flagged it as urgent."
+    },
+    {
+     "speaker": "caller",
+     "text": "Whatever. Just refund me if it doesn't show up."
+    }
+   ]
+  },
+  {
+   "external_id": "retail-003",
+   "agent_id": "support",
+   "agent_version": "v3",
+   "started_at": "2026-10-04T10:05:00+05:30",
+   "transcript": [
+    {
+     "speaker": "agent",
+     "text": "Hello, Nuvo Wear support."
+    },
+    {
+     "speaker": "caller",
+     "text": "Hi, is the cotton kurta in olive also available in XL? It shows out of stock."
+    },
+    {
+     "speaker": "agent",
+     "text": "XL is restocking on the 12th. I can notify you when it's back."
+    },
+    {
+     "speaker": "caller",
+     "text": "Yes please, that would be great."
+    },
+    {
+     "speaker": "agent",
+     "text": "Done, you'll get a message the moment it's live."
+    },
+    {
+     "speaker": "caller",
+     "text": "Perfect, thank you so much!"
+    }
+   ]
+  },
+  {
+   "external_id": "retail-004",
+   "agent_id": "support",
+   "agent_version": "v3",
+   "started_at": "2026-10-06T18:20:00+05:30",
+   "transcript": [
+    {
+     "speaker": "agent",
+     "text": "Nuvo Wear, this is Riya speaking."
+    },
+    {
+     "speaker": "caller",
+     "text": "Hi, the jacket I got has a torn seam on the sleeve. It came like that, the packaging was fine."
+    },
+    {
+     "speaker": "agent",
+     "text": "Really sorry. Could you share a photo on chat? Then I'll ship a replacement right away."
+    },
+    {
+     "speaker": "caller",
+     "text": "Sent it just now."
+    },
+    {
+     "speaker": "agent",
+     "text": "Got it. Replacement ships today and the courier will collect the damaged one at the same time."
+    },
+    {
+     "speaker": "caller",
+     "text": "Great, that's quick. Thanks."
+    }
+   ]
+  },
+  {
+   "external_id": "retail-005",
+   "agent_id": "support",
+   "agent_version": "v3",
+   "started_at": "2026-10-07T12:30:00+05:30",
+   "transcript": [
+    {
+     "speaker": "agent",
+     "text": "Nuvo Wear support, Arjun here."
+    },
+    {
+     "speaker": "caller",
+     "text": "I was charged twice for the same order. Two debits of 1,899."
+    },
+    {
+     "speaker": "agent",
+     "text": "I can see one was a failed payment that got captured. It auto-reverses in 5 to 7 working days."
+    },
+    {
+     "speaker": "caller",
+     "text": "5 to 7 days? That's my money. Why can't you just refund it now?"
+    },
+    {
+     "speaker": "agent",
+     "text": "I'm sorry, the bank controls the reversal. I'll send you the reference number."
+    },
+    {
+     "speaker": "caller",
+     "text": "This is really frustrating. I'm not sure I'll use this app again."
+    }
+   ]
+  },
+  {
+   "external_id": "retail-006",
+   "agent_id": "support",
+   "agent_version": "v3",
+   "started_at": "2026-10-08T09:50:00+05:30",
+   "transcript": [
+    {
+     "speaker": "agent",
+     "text": "Good morning, Nuvo Wear support."
+    },
+    {
+     "speaker": "caller",
+     "text": "Hey, the dress looks nothing like the photos. The colour is much duller and the fabric feels cheap."
+    },
+    {
+     "speaker": "agent",
+     "text": "I'm sorry it's not what you expected. I'll set up a return and a full refund."
+    },
+    {
+     "speaker": "caller",
+     "text": "Please. The photos are really misleading, you should fix them."
+    },
+    {
+     "speaker": "agent",
+     "text": "I'll pass that to the catalogue team. Pickup is on Thursday."
+    },
+    {
+     "speaker": "caller",
+     "text": "Okay."
+    }
+   ]
+  },
+  {
+   "external_id": "retail-007",
+   "agent_id": "support",
+   "agent_version": "v3",
+   "started_at": "2026-10-09T16:15:00+05:30",
+   "transcript": [
+    {
+     "speaker": "agent",
+     "text": "Nuvo Wear, how can I help?"
+    },
+    {
+     "speaker": "caller",
+     "text": "I need to change the delivery address on my order, I'm moving this weekend."
+    },
+    {
+     "speaker": "agent",
+     "text": "It hasn't shipped yet, so I can update it now. What's the new address?"
+    },
+    {
+     "speaker": "caller",
+     "text": "Flat 12B, Palm Residency, Andheri West."
+    },
+    {
+     "speaker": "agent",
+     "text": "Updated. It'll arrive there on Monday."
+    },
+    {
+     "speaker": "caller",
+     "text": "Super, thanks!"
+    }
+   ]
+  },
+  {
+   "external_id": "retail-008",
+   "agent_id": "support",
+   "agent_version": "v3",
+   "started_at": "2026-10-10T13:40:00+05:30",
+   "transcript": [
+    {
+     "speaker": "agent",
+     "text": "Nuvo Wear support, Riya here."
+    },
+    {
+     "speaker": "caller",
+     "text": "The sneakers are size 9 but they feel like an 8. I'd like to send them back."
+    },
+    {
+     "speaker": "agent",
+     "text": "Sure. Would you like a 9.5 or a refund?"
+    },
+    {
+     "speaker": "caller",
+     "text": "Just a refund. I'll buy from the brand store where I can try them on."
+    },
+    {
+     "speaker": "agent",
+     "text": "Refund it is. Pickup is booked for Saturday morning."
+    },
+    {
+     "speaker": "caller",
+     "text": "Okay, thanks."
+    }
+   ]
+  },
+  {
+   "external_id": "retail-009",
+   "agent_id": "support",
+   "agent_version": "v3",
+   "started_at": "2026-10-12T19:05:00+05:30",
+   "transcript": [
+    {
+     "speaker": "agent",
+     "text": "Nuvo Wear, this is Arjun."
+    },
+    {
+     "speaker": "caller",
+     "text": "Bhaiya, mera order teen din late hai. Tracking update nahi ho raha."
+    },
+    {
+     "speaker": "agent",
+     "text": "Sorry for the delay. The courier hub had a backlog; it's out for delivery tomorrow."
+    },
+    {
+     "speaker": "caller",
+     "text": "Pakka kal aayega na? Pichli baar bhi yahi bola tha."
+    },
+    {
+     "speaker": "agent",
+     "text": "Yes, I've marked it priority and you'll get an SMS with the delivery slot."
+    },
+    {
+     "speaker": "caller",
+     "text": "Theek hai, dekhte hain."
+    }
+   ]
+  },
+  {
+   "external_id": "retail-010",
+   "agent_id": "support",
+   "agent_version": "v3",
+   "started_at": "2026-10-13T11:25:00+05:30",
+   "transcript": [
+    {
+     "speaker": "agent",
+     "text": "Nuvo Wear support."
+    },
+    {
+     "speaker": "caller",
+     "text": "I ordered a bag as a gift but the birthday's passed now, it came too late. I want to return it."
+    },
+    {
+     "speaker": "agent",
+     "text": "I'm sorry it missed the day. I'll arrange a free return and a full refund."
+    },
+    {
+     "speaker": "caller",
+     "text": "Thanks. Bit disappointing though."
+    },
+    {
+     "speaker": "agent",
+     "text": "I've added a 15% coupon to your account for the trouble."
+    },
+    {
+     "speaker": "caller",
+     "text": "Oh, that's nice of you. Okay."
+    }
+   ]
+  },
+  {
+   "external_id": "retail-011",
+   "agent_id": "support",
+   "agent_version": "v3",
+   "started_at": "2026-10-14T17:45:00+05:30",
+   "transcript": [
+    {
+     "speaker": "agent",
+     "text": "Nuvo Wear, Riya speaking."
+    },
+    {
+     "speaker": "caller",
+     "text": "I returned a top two weeks ago and still haven't got my refund."
+    },
+    {
+     "speaker": "agent",
+     "text": "Let me check. The pickup was done, but the refund is stuck at quality check."
+    },
+    {
+     "speaker": "caller",
+     "text": "Two weeks! I've called three times. I'm done with this, I'm deleting the app."
+    },
+    {
+     "speaker": "agent",
+     "text": "I'm really sorry. I'm escalating it now and it should clear in 24 hours."
+    },
+    {
+     "speaker": "caller",
+     "text": "I'll believe it when I see it."
+    }
+   ]
+  },
+  {
+   "external_id": "retail-012",
+   "agent_id": "support",
+   "agent_version": "v3",
+   "started_at": "2026-10-15T10:35:00+05:30",
+   "transcript": [
+    {
+     "speaker": "agent",
+     "text": "Hello, Nuvo Wear support."
+    },
+    {
+     "speaker": "caller",
+     "text": "Hi, I bought two shirts but I don't want one of them anymore, changed my mind. Can I return just one?"
+    },
+    {
+     "speaker": "agent",
+     "text": "Yes, partial returns are fine. I've booked a pickup for one shirt."
+    },
+    {
+     "speaker": "caller",
+     "text": "Great, and the refund goes to my card?"
+    },
+    {
+     "speaker": "agent",
+     "text": "Yes, within 3 days of pickup."
+    },
+    {
+     "speaker": "caller",
+     "text": "Perfect, thanks."
+    }
+   ]
+  }
+ ]
+}

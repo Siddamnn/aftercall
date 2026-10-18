@@ -1,0 +1,83 @@
+[
+  {
+    "name": "contact_reason",
+    "description": "Why the customer got in touch and whether it was sorted",
+    "signals": [
+      {
+        "name": "reason",
+        "type": "choice",
+        "instructions": "What is the main reason the customer contacted support?",
+        "criteria": {
+          "return_or_refund": "Customer wants to return an item, exchange it, or get money back",
+          "delivery_issue": "Order is late, missing, delivered to the wrong place or marked delivered but not received",
+          "product_question": "Customer asks about a product's size, material, stock or how to use it, before or after buying",
+          "order_change": "Customer wants to cancel, change the address, or change items on an order not yet delivered",
+          "payment_issue": "Double charge, failed payment, coupon not applied, or a refund not received",
+          "other": "Anything else"
+        }
+      },
+      {
+        "name": "resolved",
+        "type": "yes_no",
+        "instructions": "By the end of the conversation, was the customer's issue resolved or a clear fix agreed?",
+        "criteria": {
+          "true": "The agent fixed it or both agreed on a concrete next step with a date (pickup booked, refund initiated, replacement shipped)",
+          "false": "The issue is still open, the customer was told to wait with no date, or the customer left unhappy"
+        }
+      }
+    ]
+  },
+  {
+    "name": "return_details",
+    "description": "Why the item is coming back, asked only for returns and refunds",
+    "run_if": {
+      "tracker": "contact_reason",
+      "signal": "reason",
+      "op": "in",
+      "value": [
+        "return_or_refund"
+      ]
+    },
+    "signals": [
+      {
+        "name": "return_reason",
+        "type": "choice",
+        "instructions": "Why is the customer returning the item? Only use a reason the customer actually gave.",
+        "criteria": {
+          "wrong_size": "Item does not fit: too small, too big, size chart was off",
+          "damaged": "Item arrived broken, torn, stained or defective",
+          "not_as_described": "Colour, material or quality is different from the photos or description",
+          "changed_mind": "Customer no longer wants it, found it cheaper, or ordered by mistake",
+          "late_delivery": "Item came too late to be useful",
+          "other": "Another reason, or the customer gave none"
+        }
+      }
+    ]
+  },
+  {
+    "name": "customer_risk",
+    "description": "Signs the customer may stop buying from us",
+    "signals": [
+      {
+        "name": "churn_risk",
+        "type": "score",
+        "instructions": "How likely is this customer to stop shopping with us, judging by what they said?",
+        "criteria": [
+          "Low: happy or neutral, no sign of leaving",
+          "Some: disappointed, but still willing to order again",
+          "High: says they are fed up, compares us to other stores, or doubts they will order again",
+          "Leaving: says they will stop ordering, uninstall the app or close their account"
+        ]
+      },
+      {
+        "name": "competitor_mentioned",
+        "type": "yes_no",
+        "instructions": "Did the customer mention another store, app or brand they could buy from instead?",
+        "criteria": {
+          "true": "Customer names or refers to another shopping app, store or brand as an alternative",
+          "false": "No other store or brand is mentioned"
+        }
+      }
+    ]
+  }
+]
