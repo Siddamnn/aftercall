@@ -1,0 +1,311 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+@import '@fontsource-variable/geist';
+@import '@fontsource-variable/geist-mono';
+
+/* Dark mode follows the OS. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* aftercall: cool neutrals, one cobalt signal. Amber = large / needs review. Rose = over the
+   limit / won't run. Green = done. Radius: tags 6px, controls 8px, surfaces 12px. */
+:root {
+  --background: #f7f8fa;
+  --foreground: #0f1115;
+  --card: #ffffff;
+  --card-foreground: #0f1115;
+  --popover: #ffffff;
+  --popover-foreground: #0f1115;
+  --primary: #2446e6;
+  --primary-foreground: #ffffff;
+  --primary-soft: #eef1fe;
+  --secondary: #f0f2f5;
+  --secondary-foreground: #0f1115;
+  --muted: #f0f2f5;
+  --muted-foreground: #697080;
+  --ink-2: #454b57;
+  --accent: #eef0f4;
+  --accent-foreground: #0f1115;
+  --destructive: #d11a43;
+  --border: #e3e6eb;
+  --input: #dcdfe6;
+  --ring: #2446e6;
+  --warn: #b45309;
+  --warn-soft: #fef5e7;
+  --stop: #d11a43;
+  --stop-soft: #fff0f3;
+  --ok: #0f8a5f;
+  --ok-soft: #e7f6ef;
+  /* Chart categories, in this order and never cycled. Validated with the dataviz skill's
+     checker on the card surface (CVD and normal-vision separation pass; slots 3-5 sit under 3:1,
+     so charts always carry a legend with values and a table view). Slot 1 is the brand cobalt. */
+  --series-1: #2446e6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-5: #e87ba4;
+  --series-6: #008300;
+  --series-7: #4a3aa7;
+  --series-8: #e34948;
+  --radius: 0.5rem;
+  --shadow-panel: 0 1px 2px rgb(15 17 21 / 0.04), 0 4px 16px -8px rgb(15 17 21 / 0.08);
+  --shadow-float: 0 1px 2px rgb(15 17 21 / 0.05), 0 16px 40px -12px rgb(15 17 21 / 0.18);
+
+  /* Motion tokens (web-ui / transitions.dev scale). */
+  --duration-quick: 150ms;
+  --duration-fast: 250ms;
+  --duration-slow: 400ms;
+  --ease-smooth-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.36, 0.64, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  /* Code samples in the API docs: a dark panel in both themes (the Stripe convention). */
+  --code-bg: #12151c;
+  --code-bar: #191d26;
+  --code-fg: #dfe3ea;
+  --code-dim: #7d8594;
+  --code-str: #8fd6b0;
+  --code-key: #9db2ff;
+  --code-num: #f5b971;
+  --code-kw: #e59bd0;
+  color-scheme: light;
+}
+
+/* Set on <html> by the script in index.html and by src/theme.ts. */
+:root.dark {
+  --background: #0a0b0e;
+  --foreground: #eceef2;
+  --card: #111318;
+  --card-foreground: #eceef2;
+  --popover: #15171d;
+  --popover-foreground: #eceef2;
+  --primary: #7089ff;
+  --primary-foreground: #0a0b0e;
+  --primary-soft: #161c38;
+  --secondary: #1a1d24;
+  --secondary-foreground: #eceef2;
+  --muted: #181b21;
+  --muted-foreground: #8b919d;
+  --ink-2: #b4b9c3;
+  --accent: #1d2028;
+  --accent-foreground: #eceef2;
+  --destructive: #ff7a95;
+  --border: #23262e;
+  --input: #2c3039;
+  --ring: #7089ff;
+  --warn: #f2a454;
+  --warn-soft: #2a1f12;
+  --stop: #ff7a95;
+  --stop-soft: #2f141c;
+  --ok: #4cc493;
+  --ok-soft: #10261d;
+  --series-1: #7089ff;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --series-4: #c98500;
+  --series-5: #d55181;
+  --series-6: #008300;
+  --series-7: #9085e9;
+  --series-8: #e66767;
+  --shadow-panel: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-float: 0 1px 2px rgb(0 0 0 / 0.4), 0 16px 40px -12px rgb(0 0 0 / 0.7);
+  --code-bg: #0d0f14;
+  --code-bar: #13161d;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, monospace;
+  --font-heading: var(--font-sans);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-ink-2: var(--ink-2);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-stop: var(--stop);
+  --color-stop-soft: var(--stop-soft);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --shadow-panel: var(--shadow-panel);
+  --shadow-float: var(--shadow-float);
+  --ease-smooth-out: var(--ease-smooth-out);
+  --ease-drawer: var(--ease-drawer);
+  --radius-sm: calc(var(--radius) * 0.75);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.5);
+  --radius-2xl: calc(var(--radius) * 2);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    font-feature-settings: 'ss01' on;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3 {
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  button:not(:disabled), [role='button']:not(:disabled), summary {
+    cursor: pointer;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 22%, transparent);
+  }
+}
+
+@layer components {
+  .surface {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-panel);
+  }
+
+  .skeleton {
+    background: linear-gradient(90deg, var(--muted) 25%, color-mix(in oklab, var(--muted), var(--card) 70%) 50%, var(--muted) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s linear infinite;
+    border-radius: 6px;
+  }
+  @keyframes shimmer {
+    to { background-position: -200% 0; }
+  }
+
+  /* "Working" text: a light band sweeps across the label. */
+  .shimmer-text {
+    background: linear-gradient(90deg, var(--muted-foreground) 35%, var(--foreground) 50%, var(--muted-foreground) 65%);
+    background-size: 250% 100%;
+    background-clip: text;
+    color: transparent;
+    animation: sweep 1.8s linear infinite;
+  }
+  @keyframes sweep {
+    from { background-position: 100% 0; }
+    to { background-position: -150% 0; }
+  }
+
+  /* Ledger: segments grow from the left once, on arrival. */
+  .ledger-seg {
+    transform-origin: left;
+    animation: grow 600ms var(--ease-smooth-out) both;
+    animation-delay: calc(var(--i) * 60ms);
+  }
+  @keyframes grow {
+    from { transform: scaleX(0.001); }
+  }
+
+  .hatch {
+    background-image: repeating-linear-gradient(135deg, currentColor 0 1.5px, transparent 1.5px 6px);
+  }
+
+  /* Landing: fine dotted grid that fades out toward the edges. */
+  .dot-grid {
+    background-image: radial-gradient(color-mix(in oklab, var(--foreground) 14%, transparent) 1px, transparent 1px);
+    background-size: 20px 20px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 75%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+.theme-switching, .theme-switching * {
+  transition: none !important;
+}
+
+/* Print, or Save as PDF: the page alone, charts kept whole. */
+@media print {
+  @page { margin: 12mm; }
+  body { background: var(--card); }
+  .surface { box-shadow: none; break-inside: avoid; }
+}
+
+/* Toast timer (lib/toast.ts): a blue ring drawn around each toast as its time runs, from the bottom
+   middle, right, up, across the top, down the left and back. A conic gradient on a ring mask:
+   conic runs clockwise from the bottom (180deg), so the ring is mirrored to run the other way.
+   Pauses while the toasts are hovered, like their timers. Toasts that stay (class toast-sticky)
+   have no ring. Reduced motion: no ring, the toast just waits. */
+@property --toast-sweep {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+[data-sonner-toast]:not(.toast-sticky)::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 2px;
+  pointer-events: none;
+  background: conic-gradient(from 180deg, var(--primary) var(--toast-sweep), transparent 0);
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  transform: scaleX(-1);
+  animation: toast-sweep var(--toast-ms, 5000ms) linear forwards;
+  /* Back in only once Sonner's stack has settled (its moves take 400ms). */
+  transition: opacity 150ms ease-out 400ms;
+}
+/* Hovered, swiped or leaving: Sonner spreads, slides and resizes the toasts, which bends the ring
+   out of shape. The ring stops where it is and goes at once; after a hover it fades back in. */
+[data-sonner-toaster]:hover [data-sonner-toast]::after,
+[data-sonner-toast][data-swiping="true"]::after,
+[data-sonner-toast][data-removed="true"]::after,
+[data-sonner-toast][data-swipe-out="true"]::after {
+  animation-play-state: paused;
+  opacity: 0;
+  transition: none;
+}
+/* Sonner's close button stays hidden: a click on the toast uses it instead (lib/toast.ts). */
+[data-sonner-toast] [data-close-button] {
+  display: none !important;
+}
+@keyframes toast-sweep {
+  to { --toast-sweep: 360deg; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-sonner-toast]::after { display: none; }
+}
+
+/* A toast flying into the bell (lib/toast.ts): the real one vanishes at once, the copy flies. */
+[data-sonner-toaster][data-flying] [data-sonner-toast][data-removed="true"] {
+  opacity: 0 !important;
+  transition: none !important;
+}

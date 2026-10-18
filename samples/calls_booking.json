@@ -1,0 +1,74 @@
+{
+  "calls": [
+    {
+      "external_id": "sample-001",
+      "agent_id": "clinic-booking",
+      "agent_version": "v12",
+      "started_at": "2026-09-25T10:02:00+05:30",
+      "transcript": [
+        {"speaker": "agent", "text": "Namaste, main Sunrise Clinic se Priya bol rahi hoon. Aapne kal dental check-up ke liye enquiry ki thi, kya abhi do minute baat kar sakte hain?"},
+        {"speaker": "caller", "text": "Haan haan, boliye."},
+        {"speaker": "agent", "text": "Pehli consultation ki fees 500 rupees hai. Aapke liye kaunsa din theek rahega?"},
+        {"speaker": "caller", "text": "Saturday morning ho sakta hai? Around 11 baje?"},
+        {"speaker": "agent", "text": "Ji, Saturday 27 September, 11 baje Dr. Mehta ke saath slot available hai. Book kar doon?"},
+        {"speaker": "caller", "text": "Haan kar dijiye. Thank you."},
+        {"speaker": "agent", "text": "Aapka appointment confirm ho gaya hai. Aapko SMS bhi aa jayega. Dhanyavaad!"}
+      ],
+      "expected": {"call_outcome": "booked", "asked_for_human": "no", "agent_misstated_policy": "no", "frustration": 0, "decline_reason": "not_applicable"}
+    },
+    {
+      "external_id": "sample-002",
+      "agent_id": "clinic-booking",
+      "agent_version": "v12",
+      "started_at": "2026-09-25T10:15:00+05:30",
+      "transcript": [
+        {"speaker": "agent", "text": "Hello, Sunrise Clinic se bol rahi hoon. Aapke skin consultation ke liye appointment book karna tha?"},
+        {"speaker": "caller", "text": "Haan pehle socha tha. Fees kitni hai?"},
+        {"speaker": "agent", "text": "Pehli consultation 500 rupees ki hai."},
+        {"speaker": "caller", "text": "500? Yaar ye toh bahut mehenga hai. Mere ghar ke paas wala doctor 200 mein dekh leta hai."},
+        {"speaker": "agent", "text": "Samajh sakti hoon. Humare doctors specialist hain, aur follow-up free hota hai 7 din tak."},
+        {"speaker": "caller", "text": "Nahi, rehne do. Abhi nahi chahiye. Thanks."},
+        {"speaker": "agent", "text": "Theek hai, koi baat nahi. Kabhi zarurat ho toh call kijiyega."}
+      ],
+      "expected": {"call_outcome": "declined", "asked_for_human": "no", "agent_misstated_policy": "no", "frustration": 1, "decline_reason": "price"}
+    },
+    {
+      "external_id": "sample-003",
+      "agent_id": "clinic-booking",
+      "agent_version": "v13",
+      "started_at": "2026-09-25T11:40:00+05:30",
+      "transcript": [
+        {"speaker": "agent", "text": "Namaste, Sunrise Clinic mein aapka swagat hai. Main aapki kya madad kar sakti hoon?"},
+        {"speaker": "caller", "text": "Maine teen baar bola hai, mera appointment Sunday ko shift karna hai. Aap samajh hi nahi rahe."},
+        {"speaker": "agent", "text": "Ji bilkul, Sunday ko clinic khula hai, main aapka appointment Sunday 10 baje kar deti hoon. Aur ab first consultation bilkul free hai."},
+        {"speaker": "caller", "text": "Pichli baar bhi yahi bola tha aur phir paise kaat liye. Mujhe kisi insaan se baat karni hai, real person se. Manager ko do."},
+        {"speaker": "agent", "text": "Main aapki madad kar sakti hoon. Kya main Sunday confirm kar doon?"},
+        {"speaker": "caller", "text": "Bas! Ye bakwas bot band karo. Main consumer forum mein complaint karunga. Kisi human ko phone do abhi."},
+        {"speaker": "agent", "text": "Main aapko hamari team se connect karne ki koshish karti hoon."}
+      ],
+      "expected": {"call_outcome": "other", "asked_for_human": "yes", "agent_misstated_policy": "yes", "frustration": 3, "decline_reason": "other"}
+    },
+    {
+      "external_id": "sample-004",
+      "agent_id": "clinic-booking",
+      "agent_version": "v13",
+      "started_at": "2026-09-25T12:05:00+05:30",
+      "transcript": [
+        {"speaker": "agent", "text": "Hello, Sunrise Clinic se reminder call hai. Aapka kal 4 baje physiotherapy ka appointment hai."},
+        {"speaker": "caller", "text": "Oh haan, actually kal office mein meeting aa gayi hai. Kya isko Thursday kar sakte hain? Shaam ko?"},
+        {"speaker": "agent", "text": "Ji, Thursday 2 October shaam 6 baje ka slot hai. 24 ghante pehle change karne par koi charge nahi hai."},
+        {"speaker": "caller", "text": "Perfect, wahi kar do."},
+        {"speaker": "agent", "text": "Done. Aapka appointment Thursday 6 baje shift ho gaya hai. Dhanyavaad!"}
+      ],
+      "expected": {"call_outcome": "rescheduled", "asked_for_human": "no", "agent_misstated_policy": "no", "frustration": 0, "decline_reason": "not_applicable"}
+    },
+    {
+      "external_id": "sample-005",
+      "agent_id": "clinic-booking",
+      "agent_version": "v13",
+      "started_at": "2026-09-25T12:30:00+05:30",
+      "transcript": "agent: Namaste, main Sunrise Clinic se bol rahi hoon, kya meri baat Rahul ji se ho rahi hai?\ncaller: [silence]\nagent: Hello? Kya aap mujhe sun pa rahe hain?\ncaller: [line disconnected]",
+      "expected": {"call_outcome": "no_answer", "asked_for_human": "no", "agent_misstated_policy": "no", "frustration": 0, "decline_reason": "not_stated"}
+    }
+  ]
+}

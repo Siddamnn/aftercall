@@ -1,0 +1,197 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "calls",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "project_id",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "status",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "occurred_at",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "runs",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "tenant_id",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_at",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "uploads",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "project_id",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_at",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "uploads",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "tenant_id",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_at",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "dashboards",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "project_id",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "updated_at",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "dashboards",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "tenant_id",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "updated_at",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "threads",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "project_id",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "owner_id",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "updated_at",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "threads",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "project_id",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "shared",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "updated_at",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "notifications",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "tenant_id",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "user_id",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_at",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "notifications",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "tenant_id",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "user_id",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "read",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_at",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "usage_events",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "tenant_id",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_at",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "doc_feedback",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "sender",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "created_at",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

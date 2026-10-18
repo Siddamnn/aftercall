@@ -1,0 +1,74 @@
+[
+  {
+    "name": "outcome",
+    "description": "How the call ended and why",
+    "signals": [
+      {
+        "name": "call_outcome",
+        "type": "choice",
+        "instructions": "What was the final outcome of this appointment-booking call?",
+        "criteria": {
+          "booked": "The caller agreed to a specific appointment date and time and the agent confirmed it",
+          "rescheduled": "The caller moved an existing appointment to a new date or time",
+          "declined": "The caller clearly said they do not want an appointment (e.g. 'nahi chahiye', 'interested nahi hoon')",
+          "no_answer": "Nobody really spoke: voicemail, silence, wrong number, or the line dropped before any conversation",
+          "other": "The call ended some other way, e.g. caller will call back later with no decision made"
+        }
+      },
+      {
+        "name": "decline_reason",
+        "type": "choice",
+        "instructions": "If the caller did not book, why not? Only use a reason the caller actually gave.",
+        "criteria": {
+          "price": "Caller says it is too expensive, asks for a discount, or compares to a cheaper option (e.g. 'bahut mehenga hai')",
+          "timing": "Caller wants a later time, is busy, or says now is not a good time (e.g. 'baad mein call karo')",
+          "already_booked_elsewhere": "Caller already has an appointment or treatment somewhere else",
+          "not_stated": "Caller did not book and gave no reason",
+          "not_applicable": "Caller booked or rescheduled, so there is no decline reason",
+          "other": "A reason is given but none of the above fits"
+        }
+      }
+    ]
+  },
+  {
+    "name": "compliance",
+    "description": "Did the agent stay within clinic policy",
+    "signals": [
+      {
+        "name": "agent_misstated_policy",
+        "type": "yes_no",
+        "instructions": "Did the agent state a price or policy that contradicts this clinic policy: first consultation costs Rs 500; cancellations are free up to 24 hours before the appointment; the clinic is closed on Sundays.",
+        "criteria": {
+          "true": "The agent said something that conflicts with the policy, e.g. consultation is free, a different price, open on Sunday, or a cancellation fee inside the free window",
+          "false": "The agent's statements match the policy, or the agent never mentioned price, cancellation or opening days"
+        }
+      }
+    ]
+  },
+  {
+    "name": "experience",
+    "description": "How the caller felt about the call",
+    "signals": [
+      {
+        "name": "asked_for_human",
+        "type": "yes_no",
+        "instructions": "Did the caller explicitly ask to speak to a real person or human agent instead of the bot?",
+        "criteria": {
+          "true": "Caller asks for a human, a real person, a manager or staff member (e.g. 'kisi insaan se baat karao', 'real person please')",
+          "false": "Caller never asks to be transferred to a person"
+        }
+      },
+      {
+        "name": "frustration",
+        "type": "score",
+        "instructions": "How frustrated was the caller by the end of the call?",
+        "criteria": [
+          "Calm: polite or neutral throughout",
+          "Mildly irritated: some impatience or a complaint, but still cooperative",
+          "Frustrated: repeated complaints, raised tone, says the bot is not understanding",
+          "Angry: hostile, threatens to complain or leave, uses abusive language"
+        ]
+      }
+    ]
+  }
+]
