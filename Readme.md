@@ -24,7 +24,7 @@ aftercall/
 │  ├─ backend/        Python API (FastAPI, Firestore, Cloud Tasks, Gemini, Jev) — see apps/backend/README.md
 │  └─ web/            React UI (Vite, Tailwind, Firebase Auth) — see apps/web/README.md
 ├─ samples/           shared sample calls, trackers + signals (tests, smoke test, demo)
-├─ docs/              google-cup/ (data model, deploy runbook), deck/ (submission deck, video script)
+├─ docs/              google-cup/deploy.md (deploy runbook)
 ├─ firebase.json      Hosting + Firestore rules and indexes
 ├─ deploy.sh          one-shot deploy to a GCP project (see docs/google-cup/deploy.md)
 ├─ .env.example       one env file for every app; copy to .env at the repo root
@@ -88,6 +88,5 @@ cd apps/web && npm run check                                           # UI vali
 
 ## Docs
 
-- [Firestore data model](docs/google-cup/models.md) and [deploy runbook](docs/google-cup/deploy.md)
-- [Submission deck](docs/deck/aftercall-koffee-after-kitkat.pdf) and [3-minute video script](docs/deck/video-script.md)
+- [Deploy runbook](docs/google-cup/deploy.md)
 - [Backend](apps/backend/README.md) and [web app](apps/web/README.md)
